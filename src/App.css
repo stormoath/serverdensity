@@ -1,0 +1,22 @@
+p, .App-selection {
+	padding: 20px;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+@media (min-width: 260px){
+.App-header {
+  background-color: #600;
+  height: 160px;
+  padding-top: 20px;
+  color: white;
+  text-align: center;
+}
+}
+
+.App-intro {
+  font-size: large;
+}
+
