@@ -1,24 +1,6 @@
 import APIKEY from './key'
 const API_KEY = APIKEY();
 
-export function comics(){
-	return (
-		[
-			{ label: 'Annihilation' },
-			{ label: 'Black Panther' },
-			{ label: 'Black Widow' },
-			{ label: 'Darth Vader' },
-			{ label: 'Fantastic Four'},
-			{ label: 'Hellcat' },
-			{ label: 'Howard The Duck' },
-			{ label: 'Spider-Man' },
-			{ label: 'The Ultimates' },
-			{ label: 'Vision' },
-			{ label: 'X-Men' }
-		]
-	)
-}
-
 export async function getComics(value, cb){
 	return setTimeout(cb, 500, await comicsRequest(value))
 }
@@ -64,6 +46,7 @@ function issueParse(data){
 	issueInfo.description = issue.description
 	issueInfo.price = issue.prices[0].price
 	issueInfo.image = issue.thumbnail.path + "." + issue.thumbnail.extension
+	issueInfo.display = "flex"
 	console.log(issueInfo)
 	return issueInfo
 }

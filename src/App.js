@@ -7,13 +7,14 @@ import {comics,getComics,submitSelection} from './util'
 
 class App extends Component {
 	state = {
-		value: "Enter the series here",
-		comics: comics(),
+		value: "",
+		comics: [],
 		latestIssue: {
 			title: '',
 			description: '',
 			image: '',
-			price: ''
+			price: '',
+			display: 'none'
 		}
 }
 
@@ -29,12 +30,21 @@ class App extends Component {
         <p className="App-intro">
           Simply type a comic book series into the field below and the app will show you the latest publication in the series – or a list of series' matching your input.
         </p>
+        <div style={{display:this.state.latestIssue.display}} className="App-display">
+			<h2>{this.state.latestIssue.title}</h2>
+			<img src={this.state.latestIssue.image} alt="" />
+			<section>
+				<p className="description">{this.state.latestIssue.description}</p>
+				<p className="price">{this.state.latestIssue.price} USD</p>
+			</section>
+			
+	    </div>
 	    <div className="App-selection">
 			<label htmlFor="comic-autocomplete">Enter/Select a comic series</label><br />
 			<Autocomplete
 				getItemValue={(item) => item.label}
 				value = {this.state.value}
-				inputProps = {{ id: 'comic-autocomplete' }}
+				inputProps = {{ id: 'comic-autocomplete', placeholder: 'Enter Series here...' }}
 				items={this.state.comics}
 				renderItem={(item, isHighlighted) =>
 						<div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
@@ -63,17 +73,12 @@ class App extends Component {
 	    			onKeyup={(event, value, item) => {
 					event.preventDefault()
 					if (event.keyCode === 13){
-						submitSelection(value, item.id)
+						alert("please select from the autocompletion list")
 					}
 				}}
 			/>
 	</div>
-	    <div>
-		<h2>{this.state.latestIssue.title}</h2>
-		<p>{this.state.latestIssue.description}</p>
-		<img src={this.state.latestIssue.image} alt="cover image" />
-		<span>{this.state.latestIssue.price}</span>
-	    </div>
+
       </div>
     );
   }

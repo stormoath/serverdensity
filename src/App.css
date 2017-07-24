@@ -1,22 +1,69 @@
-p, .App-selection {
-	padding: 20px;
+.App-selection {
+	padding: 3vh;
 }
 
 .App-logo {
   height: 80px;
 }
 
-@media (min-width: 260px){
 .App-header {
   background-color: #600;
-  height: 160px;
-  padding-top: 20px;
+  height: 35vh;
+  padding-top: 3vh;
   color: white;
   text-align: center;
 }
-}
+
 
 .App-intro {
-  font-size: large;
+  font-size: 3vh;
+  padding: 3vh;
+
 }
 
+.App-selection {
+	margin-bottom: 60vmin;
+}
+
+div.App-display {
+	display: flex;
+	height: 80%;
+	padding: 5%;
+	background-color: #600;
+	color: #fff;
+	flex-flow: column;
+}
+
+@media screen and (min-width: 600px){
+	div.App-display{
+		flex-flow: row wrap;
+		justify-content: space-around; 
+	}
+}
+
+.App-display h2 {
+	width: 100%;
+	font-size: 6vh;
+	padding-bottom: 2vh;
+}
+
+.App-display img {
+	margin: 0 auto 0 auto;
+	width: 60vmin;
+	height: auto;
+	flex: 0 1 auto;
+}
+
+.App-display section{
+	flex: 0 1 60%;
+}
+
+.App-display p {
+	padding: 2vh;
+	font-size: 3vh;
+}
+
+.App-display .price {
+	padding-top: 4vh;
+	font-weight: bold;
+}
